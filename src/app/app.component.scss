@@ -1,10 +1,39 @@
-.form {
-  min-height: 100%;
-  background: blanchedalmond;
+.form-group {
+  max-width: 960px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
 }
 
 .inner {
   max-width: 1000px;
   margin: 0 auto;
   padding: 20px 0;
+}
+
+.form-row {
+  padding: 10px 0;
+  margin: 0 0 40px 0;
+
+  & > mat-form-field {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  p {
+    margin-bottom: 10px;
+  }
+
+  ::ng-deep .mat-form-field-infix {
+    width: 400px;
+  }
+
+  ::ng-deep .mat-radio-button {
+    margin: 0 20px 0 0;
+  }
+
+  ::ng-deep .mat-radio-group mat-label {
+    margin: 0 20px 0 0;
+  }
 }

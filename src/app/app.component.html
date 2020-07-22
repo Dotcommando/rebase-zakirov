@@ -1,5 +1,28 @@
-<div class="form">
+<form [formGroup]="form" (ngSubmit)="submit()" class="form-group" enctype="multipart/form-data">
     <div class="inner">
         <h1>Форма</h1>
+
+        <div class="left-col">
+            <div class="form-row">
+                <mat-form-field>
+                    <input
+                            matInput
+                            placeholder="Введите фамилию и имя"
+                            formControlName="fullname"
+                    />
+                </mat-form-field>
+                <div *ngIf="form.controls['fullname'].invalid && (form.controls['fullname'].dirty || form.controls['fullname'].touched)"
+                     class="alert alert-danger">
+                    <div *ngIf="form.controls['fullname'].errors.required">
+                        Пожалуйста, введите Ваше имя и фамилию.
+                    </div>
+
+                    <div *ngIf="form.controls['fullname'].errors.pattern && !form.controls['fullname'].errors.required && form.controls['fullname'].touched">
+                        Пожалуйста, используйте кириллицу при вводе имени и фамилии.
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
-</div>
+</form>

@@ -18,6 +18,9 @@ export class AppComponent implements OnInit {
         Validators.required,
         Validators.pattern(/[а-яА-ЯёЁ\-]+[\s]{1}[а-яА-ЯёЁ]+$/)
       ]],
+      gender: ['', [
+        Validators.required
+      ]],
     };
 
     this.form = this.formBuilder.group(group);
@@ -27,7 +30,7 @@ export class AppComponent implements OnInit {
    * Чекаем все поля, чтобы отработал валидатор.
    * @param formGroup - форма
    */
-  private markFormGroupTouched(formGroup: FormGroup | AbstractControl) {
+  private markFormGroupTouched(formGroup: FormGroup | AbstractControl): void {
     if (!('controls' in formGroup)) { return; }
     Object.values(formGroup.controls).forEach(control => {
       control.markAsTouched();
@@ -45,4 +48,5 @@ export class AppComponent implements OnInit {
 
 export interface IForm {
   fullname: { [key: string]: any };
+  gender: { [key: string]: any };
 }

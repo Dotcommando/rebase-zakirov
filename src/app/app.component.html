@@ -37,6 +37,23 @@
                         Пожалуйста, выберите пол.
                     </div>
                 </div>
+                <mat-form-field>
+                    <mat-label>Дата рождения:</mat-label>
+                    <input
+                            matInput
+                            formControlName="birthday"
+                            [matDatepicker]="birthday"
+                            [matDatepickerFilter]="birthdayPickerFilter"
+                    >
+                    <mat-datepicker-toggle matSuffix [for]="birthday"></mat-datepicker-toggle>
+                    <mat-datepicker #birthday></mat-datepicker>
+                </mat-form-field>
+                <div *ngIf="form.controls['birthday'].invalid && (form.controls['birthday'].dirty || form.controls['birthday'].touched)"
+                     class="alert alert-danger">
+                    <div *ngIf="form.controls['birthday'].errors.required">
+                        Поле &laquo;День рождения&raquo; обязательно к заполнению.
+                    </div>
+                </div>
             </div>
         </div>
 

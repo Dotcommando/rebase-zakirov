@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -18,8 +20,12 @@ import { MatRadioModule } from '@angular/material/radio';
     ReactiveFormsModule,
     MatInputModule,
     MatRadioModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
   ],
-  providers: [],
+  providers: [
+    MatDatepickerModule,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
